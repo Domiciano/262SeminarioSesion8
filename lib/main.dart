@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:playlist_app/screens/add_song_screen.dart';
+import 'package:playlist_app/screens/login_screen.dart';
 import 'package:playlist_app/screens/playlist_screen.dart';
+import 'package:playlist_app/screens/song_detail_screen.dart';
 
 void main() {
   runApp(const App());
@@ -12,9 +15,12 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: '/login',
       routes: {
-        '/': (context) => const PlaylistScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/playlist': (context) => const PlaylistScreen(),
+        '/songdetail': (context) => const SongDetailScreen(),
+        '/addsong': (context) => const AddSongScreen(),
       },
     );
   }

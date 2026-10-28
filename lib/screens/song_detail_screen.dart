@@ -5,6 +5,8 @@ import 'package:playlist_app/models/song.dart';
 class SongDetailScreen extends StatelessWidget {
   const SongDetailScreen({super.key});
 
+  // Song song = (Song) ModalRoute.of(context)!.settings.arguments;
+
   @override
   Widget build(BuildContext context) {
     final song = ModalRoute.of(context)!.settings.arguments as Song;

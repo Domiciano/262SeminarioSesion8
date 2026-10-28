@@ -14,12 +14,6 @@ class PlaylistScreen extends StatefulWidget {
 class _PlaylistScreenState extends State<PlaylistScreen> {
   final List<Song> _songs = [];
 
-  void _addSong(Song song) {
-    setState(() {
-      _songs.add(song);
-    });
-  }
-
   void _deleteSong(Song song) {
     setState(() {
       _songs.remove(song);
@@ -42,7 +36,12 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              SongForm(onAdd: (song) => _addSong(song)),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/addsong');
+                },
+                child: Text("Crear nueva cancion"),
+              ),
               SongList(
                 songs: _songs,
                 onDelete: (song) => _deleteSong(song),

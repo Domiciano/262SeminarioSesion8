@@ -17,7 +17,10 @@ class SongCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => debugPrint('Navegar a SongDetailScreen'),
+      onTap: () {
+        //Enviamos la ssong a la siguiente pantalla
+        Navigator.pushNamed(context, '/songdetail', arguments: song);
+      },
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.all(12),
