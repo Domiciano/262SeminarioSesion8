@@ -2,6 +2,8 @@
 
 Repositorio de arranque de la sesión 8. La playlist del final de la sesión 7: `SongForm`, `SongList` y `SongCard` como componentes, el estado en `PlaylistScreen` y las favoritas con `copyWith`.
 
+Trae además dos pantallas nuevas en `lib/screens/`, todavía sin registrar en las rutas: `SongDetailScreen`, ya hecha, y `AddSongScreen`, vacía, a la que hay que mudar el formulario. Tocar una `SongCard` solo imprime `Navegar a SongDetailScreen` en la consola.
+
 ```bash
 git clone https://github.com/Domiciano/262SeminarioSesion8.git
 cd 262SeminarioSesion8
