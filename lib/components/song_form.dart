@@ -14,7 +14,9 @@ class SongForm extends StatefulWidget {
 class _SongFormState extends State<SongForm> {
   final _titleController = TextEditingController();
   final _artistController = TextEditingController();
-  final _imageUrlController = TextEditingController();
+  final _imageUrlController = TextEditingController()
+    ..text = "https://fastly.picsum.photos/id/426/400/400.jpg";
+
   bool _showError = false;
 
   void _submit() {
@@ -24,11 +26,13 @@ class _SongFormState extends State<SongForm> {
       });
       return;
     }
-    widget.onAdd(Song(
-      title: _titleController.text,
-      artist: _artistController.text,
-      imageUrl: _imageUrlController.text,
-    ));
+    widget.onAdd(
+      Song(
+        title: _titleController.text,
+        artist: _artistController.text,
+        imageUrl: _imageUrlController.text,
+      ),
+    );
     _titleController.clear();
     _artistController.clear();
     setState(() {
@@ -57,10 +61,7 @@ class _SongFormState extends State<SongForm> {
             'Escribe el nombre y el artista',
             style: TextStyle(color: Colors.red),
           ),
-        FilledButton(
-          onPressed: () => _submit(),
-          child: const Text('Agregar'),
-        ),
+        FilledButton(onPressed: () => _submit(), child: const Text('Agregar')),
       ],
     );
   }
