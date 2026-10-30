@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:playlist_app/components/song_form.dart';
-import 'package:playlist_app/models/song.dart';
 
 /// Screen that will host the form for a new song.
 class AddSongScreen extends StatelessWidget {
   const AddSongScreen({super.key});
-
-  void _addSong(Song song) {}
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +12,7 @@ class AddSongScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.all(16),
-          child: Column(children: [SongForm(onAdd: (song) => _addSong(song))]),
+          child: Column(children: [SongForm(onAdd: (song) => Navigator.pop(context, song))]),
         ),
       ),
     );

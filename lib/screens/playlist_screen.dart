@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:playlist_app/components/song_form.dart';
 import 'package:playlist_app/components/song_list.dart';
 import 'package:playlist_app/models/song.dart';
 
@@ -13,6 +12,19 @@ class PlaylistScreen extends StatefulWidget {
 
 class _PlaylistScreenState extends State<PlaylistScreen> {
   final List<Song> _songs = [];
+
+  void _addSong(Song song) {
+    setState(() {
+      _songs.add(song);
+    });
+  }
+
+  Future<void> _openAddSong() async {
+    final result = await Navigator.pushNamed(context, '/addsong');
+    if (result is Song) {
+      _addSong(result);
+    }
+  }
 
   void _deleteSong(Song song) {
     setState(() {
@@ -37,9 +49,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           child: Column(
             children: [
               ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/addsong');
-                },
+                onPressed: () => _openAddSong(),
                 child: Text("Crear nueva cancion"),
               ),
               SongList(
